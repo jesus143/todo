@@ -120,21 +120,10 @@ app.controller('myCtrl', function($scope, $http){
 
     $scope.todoCheckbox = [];
     $scope.todoDoneChange = function (id){
-
-        console.log("test id = " + id);
-
-        var done = $scope.todoCheckbox;
-        if($scope.todoCheckbox[id]) {
-            console.log("checked");
-        } else {
-            console.log("un checked");
-        }
-
-        $http.post(routeBase + '/home/http/done',  [{id:id, done:done}]).then(function($response){
-            console.log('success');
+        $http.post(routeBase + '/home/http/done', {id:id, done:$scope.todoCheckbox[id]}).then(function($response){
+            console.log(response.data);
         });
     }
-
 });
 
 

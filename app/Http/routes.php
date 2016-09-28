@@ -46,11 +46,16 @@ Route::group(['prefix'=> 'home', 'middleware'=> 'auth'], function(){
 	Route::get('get_onload', function(){
 		return "page loaded http get request";
 	});
-
 	Route::post('http/done', function(){
-		dd(Input::all());
+		$todo = App\Todo::find(Input::get('id'));
+		$todo->done = Input::get('done');
+ 
+		if($todo->save()) {
+			return 'successfully updated';
+		} else {
+			return 'failed to update';
+		}
 	});
 });
-
 
 
