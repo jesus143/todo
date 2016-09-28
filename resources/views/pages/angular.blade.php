@@ -27,7 +27,7 @@
          <input type="text" placeholder="search" ng-model="searchTodo" />
          <ul class="unstyled">
              <li ng-repeat="todo in todos | filter:searchTodo" ng-init="todo.done == true ? myStyle={'font-weight':'bold', 'color':'red', 'text-decoration': 'line-through', 'opacity':'0.5'} : myStyle={}" >
-                 <input type="checkbox" ng-checked="@{{todo.done}}" ng-model="todoCheckbox[todo.id]" ng-click="todoCheckbox[todo.id] == true ? myStyle={'font-weight':'bold', 'color':'red', 'text-decoration': 'line-through', 'opacity':'0.5'} : myStyle={}" ng-change="todoDoneChange(@{{todo.id}})"   >
+                 <input type="checkbox" ng-checked="@{{todo.done}}" ng-model="todoCheckbox[todo.id]" ng-click="(todoCheckbox[todo.id] == true ? myStyle={'font-weight':'bold', 'color':'red', 'text-decoration': 'line-through', 'opacity':'0.5'} : myStyle={});  todoDoneChange(todo.id);"    >
                  <span ng-style="myStyle" > @{{todo.id}} @{{ todo.text }} is true or not = @{{todo.done}}</span>
          </li>
          </ul>
@@ -45,6 +45,10 @@
          <button ng-click="pushNewName()"> Add new name</button>
          <button ng-click="orderByMe('name')" >Name </button>
          <button ng-click="orderByMe('age')" >Age </button>
+
+         <button ng-click="click1(); click2()" >Multiple ng-click</button>
+
+
      </div>
      <hr>
  </div>

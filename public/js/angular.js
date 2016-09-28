@@ -123,7 +123,17 @@ app.controller('myCtrl', function($scope, $http){
         $http.post(routeBase + '/home/http/done', {id:id, done:$scope.todoCheckbox[id]}).then(function($response){
             console.log(response.data);
         });
-    }
+    };
+
+
+    // multiple ng-click used
+    $scope.click1 = function() {
+        alert("click1 ");
+    };
+
+    $scope.click2 = function() {
+        alert("click2");
+    };
 });
 
 
