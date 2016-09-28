@@ -26,13 +26,12 @@
          <span> @{{statusMessage}} </span>
          <input type="text" placeholder="search" ng-model="searchTodo" />
          <ul class="unstyled">
-             <li ng-hide="todo_delete" ng-repeat="todo in todos | filter:searchTodo" ng-init="todo.done == true ? myStyle={'font-weight':'bold', 'color':'red', 'text-decoration': 'line-through', 'opacity':'0.5'} : myStyle={}" >
+             <li ng-hide="todo_delete[todo.id]" ng-repeat="todo in todos | filter:searchTodo" ng-init="todo.done == true ? myStyle={'font-weight':'bold', 'color':'red', 'text-decoration': 'line-through', 'opacity':'0.5'} : myStyle={}" >
                  <input type="checkbox" ng-checked="@{{todo.done}}" ng-model="todoCheckbox[todo.id]" ng-click="(todoCheckbox[todo.id] == true ? myStyle={'font-weight':'bold', 'color':'red', 'text-decoration': 'line-through', 'opacity':'0.5'} : myStyle={});  todoDoneChange(todo.id);"    >
                  <span ng-style="myStyle" > @{{todo.id}} @{{ todo.text }} </span>
 
-
                  &nbsp;&nbsp;
-                 <span style="cursor:pointer" ng-click="todo_delete=true" class="glyphicon glyphicon-trash" aria-hidden="true"  style="color:#29292c" >delete</span>
+                 <span style="cursor:pointer" ng-click="todoDelete(todo.id)" class="glyphicon glyphicon-trash" aria-hidden="true"  style="color:#29292c" >delete</span>
                  &nbsp;&nbsp;
                  <span style="cursor:pointer" class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:#472b28" >edit</span>
             </li>

@@ -134,6 +134,22 @@ app.controller('myCtrl', function($scope, $http){
     $scope.click2 = function() {
         alert("click2");
     };
+
+    //todo delete
+
+    $scope.todo_delete = [];
+    $scope.todoDelete = function(id) {
+
+
+        $http.post(routeBase + '/home/http/delete', {id:id}). then(function($response){
+            console.log($response.data);
+        });
+
+        $scope.todo_delete[id] = true;
+
+
+
+    }
 });
 
 

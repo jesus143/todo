@@ -40,22 +40,32 @@ Route::post('addTodo', function() {
 // angular test routes
 
 Route::group(['prefix'=> 'home', 'middleware'=> 'auth'], function(){
+
 	Route::get('/', function(){
 		return view('pages.angular');
 	});
+
+
 	Route::get('get_onload', function(){
 		return "page loaded http get request";
 	});
+
+
 	Route::post('http/done', function(){
 		$todo = App\Todo::find(Input::get('id'));
 		$todo->done = Input::get('done');
- 
+
 		if($todo->save()) {
 			return 'successfully updated';
 		} else {
 			return 'failed to update';
 		}
 	});
+
+	Route::post('http/delete', function(){
+		App\Todo::destroy(Input::get('id'));
+	});
 });
+
 
 
