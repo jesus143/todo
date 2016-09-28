@@ -139,16 +139,17 @@ app.controller('myCtrl', function($scope, $http){
 
     $scope.todo_delete = [];
     $scope.todoDelete = function(id) {
-
-
         $http.post(routeBase + '/home/http/delete', {id:id}). then(function($response){
             console.log($response.data);
         });
-
         $scope.todo_delete[id] = true;
+    };
 
 
-
+    $scope.todoTextDisplay = [];
+    $scope.todoEdit = function (id) {
+        $scope.todo_delete[id] = true;
+        $scope.todotxt = $scope.todoTextDisplay[id];
     }
 });
 
