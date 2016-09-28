@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - practice_laravel_todo@localhost" uuid="d387018c-6736-4b2f-a6e8-2b932480adac">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>practice_laravel_todo.*</schema-pattern>
+      <default-schemas>practice_laravel_todo.*</default-schemas>
+    </data-source>
+  </component>
+</project>
