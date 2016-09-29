@@ -17,7 +17,7 @@ class Todo extends Model {
      *
      * @var array
      */
-    protected $fillable = ['user_id', 'text', 'done'];
+    protected $fillable = ['user_id', 'text', 'done', 'created_at'];
 
     /**
      * The attributes excluded from the model's JSON form.
